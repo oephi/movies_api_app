@@ -5,6 +5,9 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @review = Review.new
+    # @reviews = Review.where(movie_id: @movie.id)
+    @reviews = @movie.reviews
   end
 
   def create

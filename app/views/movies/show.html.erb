@@ -2,4 +2,12 @@
 
 <%= image_tag(@movie.image, class: 'big', alt: 'default') %>
 
+<%= render "reviews/form", review: @review, movie: @movie %>
+
+<% @reviews.each do |review| %>
+    <%= review.inspect %>
+    <%= link_to "Delete", movie_review_path(@movie, review),method: :delete, data: { confirm: "Are you sure? "}%>
+    <br><br>
+<% end %>
+
 <%= link_to "Movies", movies_path %>

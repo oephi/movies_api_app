@@ -1,0 +1,23 @@
+<%= form_with model: movie, local:true do |form| %>
+    <p>
+        <%= form.label :title %> 
+        <%= form.text_field :title %>
+    </p>
+    <p>
+        <%= form.label :genre %> 
+        <%= form.text_field :genre %>
+    </p>
+    <p>
+        <%= form.label :runtime %> 
+        <%= form.text_field :runtime, type: 'number' %>
+    </p>
+    <p>
+        <%= form.label :release_date %> 
+        <%= form.text_field :release_date, type: 'date' %>
+    </p>
+    <p>
+        <%= form.label :image %> 
+        <%= form.text_field :image %>
+    </p>
+    <%= form.submit %>
+<% end %>

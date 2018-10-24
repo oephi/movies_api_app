@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<section class="section container" style="border:solid .1px; padding:1em">
   <div class="field">
     <%= form.label :rating %>
     <%= form.number_field :rating %>
@@ -27,6 +28,10 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+  <button class="btn waves-effect waves-light" style="background-color:#59CD90" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+    <!-- <%= form.submit %> -->
   </div>
+<section>
 <% end %>

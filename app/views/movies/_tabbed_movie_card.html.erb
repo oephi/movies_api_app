@@ -1,0 +1,24 @@
+ <div class="card" style="display:flex">
+    <div class="card-image"> 
+        <img src=<%= (movie.image) %> style="width:15em">
+        </div>
+    <div class="card-content">
+        <h4 style="margin: 0 0 20px 0"><%= movie.title %></h4>
+        <p style="margin: 5px 0 30px 0"><%= (movie.plot) %></p>
+        <p style="margin: 5px 0 0 0"><b>Directed by: </b> <%= (movie.director) %><p>
+        <p style="margin: 5px 0 0 0"><b>Genre: </b> <%= (movie.genre) %><p>
+        <p style="margin: 5px 0 0 0"><b>Actors: </b> <%= (movie.actors) %><p>
+        <p style="margin: 5px 0 0 0"><b>Rated: </b> <%= (movie.rated) %><p>
+        <p style="margin: 5px 0 0 0"><b>Imdb Rating: </b> <%= (movie.imdb_rating) %><p>
+    </div>
+  </div>
+  <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"  style="background-color:#FAC05E">
+                    <a href=<%="https://www.imdb.com/title/#{movie.imdb_id}" %>
+                    target="_blank"  
+                    style="color:grey;font-size:1.5em" 
+                    class="z-depth-5">
+                    <b>See on Imdb</b></a></li>   
+      </ul>
+    </div>

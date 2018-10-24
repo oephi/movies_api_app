@@ -1,14 +1,44 @@
-<h1>Movies</h1>
+<h1 style="margin: 0 0 0 .2em">Movies</h1>
 
-<%= link_to "New Movie", new_movie_path %>
+<%= link_to "+", new_movie_path, 
+            :class => "btn-floating btn-large waves-effect waves-light red",
+            style: "margin: .5em 0 0 1em" 
+            %>
 
-<% @movies.each do |movie| %>
-    <div>
-        <%= movie.inspect %>
-        <%= link_to "Edit", edit_movie_path(movie) %>
-        <%= link_to "Show", movie_path(movie) %>
-        <%= link_to "Delete", movie_path(movie), 
-                         method: :delete, 
-                         data: { confirm: 'Are you sure?' } %>
-    </div>
-<% end %>
+<table class="centered highlight" style="margin: 2em 0 0 0">
+    <thead>
+        <tr>
+            <th>Movie Image</th>
+            <th>Movie Title</th>
+            <th>Release Date</th>
+            <th>Genre</th>
+            <th>Runtime (mins)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <% @movies.each do |movie| %>
+        <tbody>
+            <tr>
+                <td><%= link_to image_tag(movie.image), movie_path(movie) %></td>
+                <td><%= movie.title %></td>
+                <td><%= movie.release_date %></td>
+                <td><%= movie.genre %></td>
+                <td><%= movie.runtime %></td>
+                <td>
+                    <div>
+                        <%= link_to "Show", movie_path(movie), 
+                                    class:"waves-effect waves-light btn", 
+                                    style: "background-color:#59CD90"
+                                    %>
+                        <%= link_to "Delete", movie_path(movie), 
+                                        method: :delete, 
+                                        data: { confirm: 'Are you sure?' },
+                                        class:"waves-effect waves-light btn",
+                                        style: "background-color:#59CD90" 
+                                        %>
+                    </div>                
+                </td>
+            </tr>
+        </tbody>
+    <% end %>
+</table>

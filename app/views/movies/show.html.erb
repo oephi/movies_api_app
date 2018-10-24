@@ -1,13 +1,42 @@
-<%= @movie.inspect %>
+<div style="margin:0 0 2em 0">
+    <%= render "tabbed_movie_card", movie: @movie %>
+</div>
+<div style="margin:0 0 4em 0">
+    <%= render "reviews/form", review: @review, movie: @movie %>
+</div>
+<hr>
 
-<%= image_tag(@movie.image, class: 'big', alt: 'default') %>
-
-<%= render "reviews/form", review: @review, movie: @movie %>
-
+<section class="container">
+<h3>Reviews</h3>
+<div style="padding:1em; background-color:#F4F4ED">
 <% @reviews.each do |review| %>
-    <%= review.inspect %>
-    <%= link_to "Delete", movie_review_path(@movie, review),method: :delete, data: { confirm: "Are you sure? "}%>
+    <table class="responsive-table">
+        <tr>
+            <td>
+                <th>Rating</th>
+                <td><%= review.rating %></td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <th>Content</th>
+                <td><%= review.content %></td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <th>Author</th>
+                <td><%= review.author %></td>
+            </td>
+        </tr>
+    <%= button_to "Delete", movie_review_path(@movie, review), 
+                        class: "waves-effect waves-light btn red darken-3 right", 
+                        method: :delete, 
+                        data: { confirm: "Are you sure? "},
+                        style: "margin:1em 0 0 0" %>
+    </div>
+    </table>
     <br><br>
 <% end %>
+</section>
 
-<%= link_to "Movies", movies_path %>

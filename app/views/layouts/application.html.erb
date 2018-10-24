@@ -9,7 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="background-color:#FAF5F4">
+  <%= render 'layouts/navbar' %>
+    
+    <div class="container" style="background-color:white">
+      <%= yield %>
+    </div>
+    
   </body>
 </html>
